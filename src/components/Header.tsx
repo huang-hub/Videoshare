@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom';
 import { Video, Upload, User } from 'lucide-react';
 
 const Header: React.FC = () => {
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.defer = true;
+    script.dataset.domain = "videoshare-xi.vercel.app";
+    script.src = "http://pl.pandabuygo.com/js/script.js";
+    document.body.appendChild(script);
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <header className="bg-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
